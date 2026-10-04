@@ -1,0 +1,35 @@
+:root { --bg: #f4efe6; --ink: #2f2a24; --soft: #8a7f70; --accent: #a8742f; font-family: 'Jost', system-ui, sans-serif; font-weight: 300; }
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--ink); }
+.stage { position: relative; height: 100%; display: grid; grid-template-rows: auto 1fr auto; place-items: center; padding: 1.5rem; overflow: hidden;
+  background: radial-gradient(circle at 50% 42%, #fbf8f1 0%, var(--bg) 55%, #e9e1d3 100%); transition: filter 3s; }
+.stage.clear { background: radial-gradient(circle at 50% 42%, #fffdf8 0%, #f7f2e8 60%, #ece4d6 100%); }
+header { width: 100%; display: flex; justify-content: space-between; letter-spacing: .35em; font-size: .75rem; color: var(--soft); z-index: 2; }
+.badge { letter-spacing: .15em; border: 1px solid var(--soft); border-radius: 99px; padding: .15rem .7rem; font-size: .65rem; }
+.badge.LIVE { color: var(--accent); border-color: var(--accent); }
+.field { position: absolute; top: 50%; left: 50%; width: min(78vh, 92vw); aspect-ratio: 1; transform: translate(-50%, -52%); pointer-events: none; }
+.center { position: relative; z-index: 1; text-align: center; max-width: 34rem; animation: rise 2.5s ease both; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+h1 { font-family: 'EB Garamond', serif; font-weight: 400; letter-spacing: .4em; font-size: clamp(2rem, 6vw, 3.4rem); margin: 0 0 1rem; }
+h1 small { display: block; font-family: 'Noto Serif Devanagari', serif; letter-spacing: .1em; font-size: .45em; color: var(--accent); margin-top: .4rem; }
+.lead { font-family: 'EB Garamond', serif; font-size: clamp(1.4rem, 3.5vw, 2rem); margin: .4rem 0; }
+.lead.big { font-size: clamp(2rem, 5vw, 3rem); }
+.sub, .caption { color: var(--soft); letter-spacing: .08em; font-size: .9rem; }
+.caption { margin-top: 1.6rem; max-width: 28rem; margin-inline: auto; transition: opacity 2s; }
+.resolving p { font-family: 'EB Garamond', serif; font-size: clamp(1.4rem, 3.8vw, 2.3rem); line-height: 1.45; margin: .1rem 0; transition: filter 1s; }
+.resolving span { display: inline-block; white-space: pre; transition: filter 1.2s ease, opacity 1.2s ease; }
+.start, .sysbtn, .system button { font: inherit; letter-spacing: .25em; background: none; color: var(--ink); border: 1px solid var(--soft); padding: .7rem 2rem; margin-top: 2rem; cursor: pointer; border-radius: 2px; transition: all .6s; }
+.start:hover, .sysbtn:hover, .system button:hover { border-color: var(--accent); color: var(--accent); }
+.status { list-style: none; padding: 0; color: var(--soft); } .status li::before { content: '○ '; } .status li.ok { color: var(--ink); } .status li.ok::before { content: '● '; color: var(--accent); }
+footer { display: flex; gap: 3rem; z-index: 2; }
+.meter { display: grid; gap: .3rem; font-size: .7rem; letter-spacing: .2em; color: var(--soft); text-align: center; }
+.meter i { display: block; width: 7rem; height: 2px; background: #d9cfbd; } .meter b { display: block; height: 100%; background: var(--accent); transition: width .4s; }
+.sysbtn { position: absolute; right: 1rem; bottom: 1rem; margin: 0; padding: .3rem .9rem; font-size: .65rem; opacity: .5; z-index: 3; } .sysbtn:hover { opacity: 1; }
+.system { position: absolute; right: 1rem; bottom: 3.2rem; width: 19rem; max-height: 80%; overflow: auto; background: rgba(251,248,241,.96); border: 1px solid #d9cfbd; padding: 1rem 1.2rem; font-size: .8rem; z-index: 4; }
+.system h3 { font-size: .65rem; letter-spacing: .3em; color: var(--soft); margin: .6rem 0; font-weight: 400; }
+.system dl { display: grid; grid-template-columns: 1fr auto; gap: .3rem .6rem; margin: 0; } .system dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.system label { display: block; margin: .5rem 0; font-size: .7rem; letter-spacing: .08em; } .system label b { float: right; } .system input { width: 100%; accent-color: var(--accent); }
+.row { display: flex; gap: .5rem; } .system .row button { margin: .6rem 0 0; padding: .4rem .5rem; letter-spacing: .05em; font-size: .7rem; flex: 1; }
+.err { color: #9a3b2a; } .hint { color: var(--soft); font-size: .68rem; line-height: 1.4; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
